@@ -1,4 +1,4 @@
-General Styles
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -6,7 +6,6 @@ body {
     margin: 0;
     padding: 0;
   }
-  
   
   /* Header Section */
   header {
@@ -57,8 +56,6 @@ body {
     color: #ffeb3b;
   }
   
-  
-  
   /* Footer Section */
   footer {
     background-color: #228b22; /* Darker green */
@@ -92,7 +89,6 @@ body {
     gap: 1.5rem;
   }
   
-  /* Feature Cards */
   .day {
     background-color: #dff5df; /* Light green bubble background */
     border-radius: 50px; /* Rounded bubble effect */
@@ -102,15 +98,14 @@ body {
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid #228b22; /* Green border for the bubble */
-    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items from the top */
+     /* Set a fixed height for the card */
+    max-height: 450px; /* Prevent it from growing too tall */
+    overflow: hidden; /* Prevent overflow */
   }
-  
-  .day:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); 
-    transform: scale(1.05);/* Stronger hover effect */
-  }
-  
+
   .day h3 {
     background-color: #228b22; /* Darker green */
     color: white;
@@ -120,9 +115,17 @@ body {
     font-size: 1.5rem;
   }
   
+
+  .day:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); 
+    transform: scale(1.05);/* Stronger hover effect */
+  }
+  
   .day ul {
     list-style: none;
     padding: 0;
+    flex-grow: 1; /* Allow list items to take available space */
   }
   
   .day li {
@@ -137,39 +140,30 @@ body {
     background-color: #f9f9f9; /* Subtle background inside the bubble */
     transition: background-color 0.3s ease;
     cursor: grab;
+    position: relative; /* Allow absolute positioning of the button */
   }
   
   .day li:hover {
     background-color: #d2f8d2; /* Highlighted green */
   }
   
-
   .day li img {
     width: 50px;
     height: 50px;
-    object-fit: cover;
+    object-fit: contain; /* Prevent images from overflowing */
     border-radius: 15px;
   }
   
-  /* Add to Planner Button */
-  .add-btn {
-    background-color: #228b22; /* Darker green */
-    color: white;
-    border: none;
-    padding: 0.3rem 0.75rem;
-    font-size: 0.8rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
-  }
+  .remove-btn-wrapper {
+    position: absolute;
+    bottom: 10px;  
+    transform: translateX(-50%);
+    width: 100%; 
+    align-self: center;
+    text-align: center; 
+   } 
   
-  .add-btn:hover {
-    background-color: #006400; /* Even darker green */
-  }
-  
-  /* Remove Button Styling */
-  .remove-btn {
+   .remove-btn {
     background-color: #ff4d4d;
     color: white;
     border: none;
@@ -177,19 +171,16 @@ body {
     font-size: 0.8rem;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 10px;
     transition: background-color 0.3s ease;
-    align-self: center;
   }
-
-  .day .remove-btn {
-    margin-top: 1rem; /* Add some spacing above the button */
-    align-self: center; /* Center the button horizontally */
-}
-  
+   
   .remove-btn:hover {
     background-color: #ff1a1a;
-  }
+  } 
+   
+  
+
+  
   
   /* Save Plan Button Styling */
   #save-plan {
@@ -280,8 +271,4 @@ body {
     color: #2f4f4f;
     font-weight: bold;
   }
-
-
-
-
-
+  
